@@ -3,10 +3,13 @@
     "buildCommand": "npm run build",
     "outputDirectory": "dist",
     "framework": "vite",
-    "rewrites": [
+    "routes": [
         {
-            "source": "/(.*)",
-            "destination": "/"
+            "handle": "filesystem"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ],
     "headers": [

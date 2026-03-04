@@ -9,10 +9,9 @@
    // Global Registry
    window.supabaseClient = null;
 
-   // 1. Validate URL
-   if (SUPABASE_URL.includes('your-project-id')) {
-      console.error('Carenium: Supabase URL is a placeholder. Please update supabase-config.js.');
-      return;
+   // 1. Validate Config
+   if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      console.error("Missing Supabase environment variables.");
    }
 
    // 2. Check CDN Availability

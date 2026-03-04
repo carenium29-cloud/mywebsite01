@@ -88,7 +88,7 @@ const Auth = (() => {
             if (window.isDemoMode) {
                 sessionStorage.removeItem('demoMode');
                 window.isDemoMode = false;
-                window.location.href = 'index.html';
+                window.location.href = '/';
                 return;
             }
 
@@ -98,10 +98,10 @@ const Auth = (() => {
 
             sessionStorage.clear();
             localStorage.removeItem('carenium-theme'); // Reset theme on logout for security if preferred
-            window.location.href = 'index.html';
+            window.location.href = '/';
         } catch (error) {
             console.error('SignOut error:', error);
-            window.location.href = 'index.html'; // Force redirect anyway
+            window.location.href = '/'; // Force redirect anyway
         }
     }
 
@@ -132,7 +132,7 @@ const Auth = (() => {
         try {
             const session = await getSession();
             if (session || window.isDemoMode) {
-                window.location.href = 'dashboard.html';
+                window.location.href = '/dashboard';
                 return true;
             }
         } catch (e) {
@@ -145,11 +145,11 @@ const Auth = (() => {
         try {
             const session = await getSession();
             if (!session && !window.isDemoMode) {
-                window.location.href = 'index.html';
+                window.location.href = '/';
                 return true;
             }
         } catch (e) {
-            window.location.href = 'index.html';
+            window.location.href = '/';
             return true;
         }
         return false;
